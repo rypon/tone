@@ -19,6 +19,13 @@
   background-color: white;
 }
 
+.white-key:active{
+  background-color: rgb(165, 165, 165);
+}
+.black-key:active{
+  background-color: rgb(53, 53, 53);
+}
+
 
 .black-key{
   background-color: black;

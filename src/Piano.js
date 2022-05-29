@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import * as Tone from "tone";
-import { playNote } from "./ToneFunctions.js";
-
-window.addEventListener("keydown", playNote);
 
 function Piano() {
   const [value, setValue] = useState("");
   const [synth, setSynth] = useState(new Tone.Synth().toDestination());
 
+  //to change the value of dropdown after each change
   function handleChange(e) {
     setValue(e.target.value);
   }
 
+  //to update to the correct state when dropdown changes
   useEffect(() => {
     if (value === "synth") {
       setSynth(new Tone.Synth().toDestination());
@@ -45,8 +44,7 @@ function Piano() {
     }
   }, [value]);
 
-  console.log("Value out:", value);
-
+  //the actual functions to play the sound
   function playC4() {
     synth.triggerAttackRelease("C4", "8n");
   }
@@ -87,6 +85,50 @@ function Piano() {
     synth.triggerAttackRelease("C5", "8n");
   }
 
+  //to allow keyboard keys to play sound
+  function playNote(event) {
+    if (event.keyCode === 65) {
+      playC4();
+    }
+    if (event.keyCode === 87) {
+      playDb4();
+    }
+    if (event.keyCode === 83) {
+      playD4();
+    }
+    if (event.keyCode === 69) {
+      playEb4();
+    }
+    if (event.keyCode === 68) {
+      playE4();
+    }
+    if (event.keyCode === 70) {
+      playF4();
+    }
+    if (event.keyCode === 84) {
+      playGb4();
+    }
+    if (event.keyCode === 71) {
+      playG4();
+    }
+    if (event.keyCode === 89) {
+      playAb4();
+    }
+    if (event.keyCode === 72) {
+      playA4();
+    }
+    if (event.keyCode === 85) {
+      playBb4();
+    }
+    if (event.keyCode === 74) {
+      playB4();
+    }
+    if (event.keyCode === 75) {
+      playC5();
+    }
+  }
+  window.addEventListener("keydown", playNote);
+
   return (
     <div className="pianoPage">
       <h1>Piano</h1>
@@ -105,7 +147,7 @@ function Piano() {
         </select>
       </div>
       <div className="piano">
-        <div className="white-key " onClick={playC4}></div>
+        <div className="white-key" onClick={playC4}></div>
         <div className="black-key" onClick={playDb4}></div>
         <div className="white-key" onClick={playD4}></div>
         <div className="black-key" onClick={playEb4}></div>

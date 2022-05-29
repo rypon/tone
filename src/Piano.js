@@ -1,26 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as Tone from "tone";
 import { playNote } from "./ToneFunctions.js";
 
 window.addEventListener("keydown", playNote);
 
 function Piano() {
-  const [value, setValue] = useState("synth");
+  const [value, setValue] = useState("");
   const [synth, setSynth] = useState(new Tone.Synth().toDestination());
 
-  function handleChange(event) {
-    console.log("Event.target.value:", event.target.value);
-    setValue(event.target.value);
-    console.log("Value:", value);
+  function handleChange(e) {
+    setValue(e.target.value);
+  }
+
+  useEffect(() => {
     if (value === "synth") {
       setSynth(new Tone.Synth().toDestination());
-      // synth.triggerAttackRelease("C4", "8n");
     }
     if (value === "duoSynth") {
       setSynth(new Tone.DuoSynth().toDestination());
-      // synth.triggerAttackRelease("C4", "8n");
     }
-  }
+    if (value === "fmSynth") {
+      setSynth(new Tone.FMSynth().toDestination());
+    }
+    if (value === "membreaneSynth") {
+      setSynth(new Tone.MembraneSynth().toDestination());
+    }
+    if (value === "metalSynth") {
+      setSynth(new Tone.MetalSynth().toDestination());
+    }
+    if (value === "monoSynth") {
+      setSynth(new Tone.MonoSynth().toDestination());
+    }
+    if (value === "noiseSynth") {
+      setSynth(new Tone.NoiseSynth().toDestination());
+    }
+    if (value === "pluckSynth") {
+      setSynth(new Tone.PluckSynth().toDestination());
+    }
+    if (value === "polySynth") {
+      setSynth(new Tone.PolySynth().toDestination());
+    }
+    if (value === "sampler") {
+      setSynth(new Tone.Sampler().toDestination());
+    }
+  }, [value]);
+
+  console.log("Value out:", value);
 
   function playC4() {
     synth.triggerAttackRelease("C4", "8n");

@@ -3,6 +3,7 @@ import Piano from "./Piano";
 import React, { useState, useEffect } from "react";
 import * as Tone from "tone";
 import Dropdown from "./Dropdown";
+import Title from "./Title";
 
 function App() {
   const [value, setValue] = useState("");
@@ -83,7 +84,7 @@ function App() {
 
   return (
     <div>
-      <h1>Piano</h1>
+      <Title />
       <Dropdown value={value} handleChange={handleChange} />
       <Piano
         playC4={playC4}

@@ -2,7 +2,7 @@ import React from "react";
 
 function Dropdown({ value, handleChange }) {
   return (
-    <div>
+    <div style={{ textAlign: "center", paddingBottom: "15px" }}>
       <select value={value} onChange={handleChange}>
         <option value="synth">Synth</option>
         <option value="duoSynth">Duo Synth</option>

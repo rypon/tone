@@ -10,3 +10,5 @@ Dropdown selection allowed for different piano sound types
   5. Metal Synth
   6. Mono Synth
   7. Pluck Synth
+
+![image](https://user-images.githubusercontent.com/61812398/172193948-51566604-114b-4942-b616-63f4ab2ff8cb.png)
